@@ -207,8 +207,12 @@ export const SpeachToText = ({
   ]);
 
   const displayText = isRecording
-    ? (finalTranscript + ' ' + interimTranscript).trim()
-    : finalTranscript;
+    ? (finalTranscript + ' ' + interimTranscript)
+        .trim()
+        .split(' ')
+        .slice(-6)
+        .join(' ')
+    : finalTranscript.split(' ').slice(-12).join(' ');
 
   return (
     <div className="flex flex-row gap-6 items-center">
