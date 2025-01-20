@@ -4,4 +4,5 @@ export interface UserDetails {
   user_id: string;
   plan: 'BASE' | 'PRO' | 'SUPER';
   email: string | null;
+  profile: string;
 }

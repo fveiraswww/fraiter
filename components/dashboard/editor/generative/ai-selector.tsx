@@ -13,6 +13,7 @@ import AICompletionCommands from './ai-completion-command';
 import AISelectorCommands from './ai-selector-command';
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import useSession from '@/lib/hooks/use-session';
 //TODO: I think it makes more sense to create a custom Tiptap extension for this functionality https://tiptap.dev/docs/editor/ai/introduction
 
 interface AISelectorProps {
@@ -23,10 +24,14 @@ interface AISelectorProps {
 export function AISelector({ onOpenChange }: AISelectorProps) {
   const { editor } = useEditor();
   const [inputValue, setInputValue] = useState('');
+  const { session } = useSession();
 
   const { completion, complete, isLoading } = useCompletion({
     // id: "novel",
     api: '/api/generate',
+    headers: {
+      Authorization: session?.access_token ?? '',
+    },
     onResponse: (response) => {
       if (response.status === 429) {
         toast.error('You have reached your request limit for the day.');

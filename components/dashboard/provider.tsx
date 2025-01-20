@@ -3,6 +3,7 @@
 import { UserDetails } from '@/db/types';
 import { User } from '@supabase/supabase-js';
 import { ThemeProvider } from 'next-themes';
+import { redirect, usePathname } from 'next/navigation';
 import React, {
   type ReactNode,
   createContext,
@@ -36,6 +37,10 @@ function Provider({
     }),
     [user_details, user]
   );
+
+  const pathname = usePathname();
+  if (pathname === '/' && user_details?.username)
+    redirect(`/dashboard/${user_details.username}`);
 
   return (
     <UserDataContext.Provider value={value}>

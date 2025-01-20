@@ -17,29 +17,15 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const supabase = await supabaseServer();
-
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
-  const { data: userData } = (await supabase
-    .from('user_details')
-    .select()
-    .eq('user_id', user?.id)
-    .single()) as unknown as { data: UserDetails };
-
   return (
     <html lang="en">
-      <Provider user={user} user_details={userData}>
-        <body>
-          <SidebarProvider>
-            <Sidebar />
-            {children}
-            <Toaster />
-          </SidebarProvider>
-        </body>
-      </Provider>
+      <body>
+        <SidebarProvider>
+          <Sidebar />
+          {children}
+          <Toaster />
+        </SidebarProvider>
+      </body>
     </html>
   );
 }
