@@ -2,6 +2,7 @@
 **/public/sw.js
 **/public/workbox-*.js
 
+
 # dependencies
 /node_modules
 /.pnp

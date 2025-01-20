@@ -6,8 +6,23 @@ import { redirect } from 'next/navigation';
 import Provider from '@/components/dashboard/provider';
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
+  title: 'Lattter',
+  description: 'Writer copilot',
+  generator: 'Next.js',
+  manifest: '/manifest.json',
+  keywords: ['nextjs', 'next14', 'pwa', 'next-pwa'],
+  authors: [
+    {
+      name: 'fveiras',
+      url: 'https://www.x.com/fveiras_',
+    },
+  ],
+  viewport:
+    'minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover',
+  icons: [
+    { rel: 'apple-touch-icon', url: 'icons/icon.svg' },
+    { rel: 'icon', url: 'icons/icon.svg' },
+  ],
 };
 
 export default async function RootLayout({
