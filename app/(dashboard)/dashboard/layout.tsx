@@ -19,8 +19,8 @@ export const metadata: Metadata = {
   viewport:
     'minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover',
   icons: [
-    { rel: 'apple-touch-icon', url: 'icons/icon.svg' },
-    { rel: 'icon', url: 'icons/icon.svg' },
+    { rel: 'apple-touch-icon', url: '/icon.svg' },
+    { rel: 'icon', url: '/icon.svg' },
   ],
 };
 
